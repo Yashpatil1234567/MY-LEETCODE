@@ -1,0 +1,27 @@
+
+int** transpose(int** matrix, int matrixSize, int* matrixColSize, int* returnSize, int** returnColumnSizes) {
+    int i,j;
+
+
+    int**tmatrix=(int**)malloc(sizeof(int*)*(* matrixColSize));
+    for(i=0;i<* matrixColSize;i++){
+        tmatrix[i]=(int*)malloc(sizeof(int)* matrixSize);
+    }
+
+
+    for(i=0;i<matrixSize;i++){
+        for(j=0;j<* matrixColSize;j++){
+            tmatrix[j][i]=matrix[i][j];
+        }
+    }
+
+
+    * returnSize=* matrixColSize;
+    * returnColumnSizes=(int*)malloc(sizeof(int)*(*returnSize));
+    for(i=0;i<*returnSize;i++){
+        (*returnColumnSizes)[i]=matrixSize;
+    }
+
+    return tmatrix;
+    
+}
